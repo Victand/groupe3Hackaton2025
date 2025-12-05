@@ -1,0 +1,7 @@
+id;nom;taille;prix;image_path
+V001;T-shirt Hackathon;M;15.00;images/tshirt_hackathon_M.png
+V002;Sweat à capuche Hackathon;L;35.00;images/sweat_hackathon_L.png
+V003;Casquette Dev;Taille unique;12.00;images/casquette_dev.png
+V004;Pull Codeur;XL;40.00;images/pull_codeur_XL.png
+V005;Sac tote bag Hackathon;Taille unique;8.50;images/totebag_hackathon.png
+

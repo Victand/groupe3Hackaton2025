@@ -1,0 +1,7 @@
+id;nom;prix;image_path
+TK001;Ticket Hackathon - Standard;15.00;images/ticket_standard.png
+TK002;Ticket Hackathon - Étudiant;10.00;images/ticket_etudiant.png
+TK003;Ticket Hackathon - VIP;30.00;images/ticket_vip.png
+TK004;Pass 2 jours Hackathon;25.00;images/pass_2_jours.png
+TK005;Pass équipe (4 personnes);50.00;images/pass_equipe_4.png
+

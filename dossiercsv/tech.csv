@@ -1,0 +1,7 @@
+id;nom;prix;garantie;image_path
+T001;Laptop Hackathon Edition;899.99;2;images/laptop_hackathon.png
+T002;Clavier mécanique RGB;129.90;3;images/clavier_rgb.png
+T003;Souris gaming sans fil;69.90;2;images/souris_gaming.png
+T004;Écran 27 pouces 144Hz;249.99;2;images/ecran_27_144hz.png
+T005;Casque audio antibruit;159.00;1;images/casque_antibruit.png
+

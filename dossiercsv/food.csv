@@ -1,0 +1,7 @@
+id;nom;prix;image_path
+F001;Sandwich jambon-beurre;4.50;images/sandwich_jb.png
+F002;Pizza slice fromage;3.20;images/pizza_slice.png
+F003;Burger classique;6.90;images/burger_classique.png
+F004;Salade César;5.80;images/salade_cesar.png
+F005;Cookie chocolat;2.00;images/cookie_choco.png
+

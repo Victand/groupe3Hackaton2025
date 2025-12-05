@@ -1,0 +1,6 @@
+id;nom;volume;prix;image_path
+B001;Eau minérale;0.5;1.20;./images/eau_50cl.jpg
+B002;Coca-Cola;1.5;2.50;./images/coca_1_5L.png
+B003;Jus d'orange;1.0;3.00;./images/jus_orange_1L.jpg
+B004;Thé glacé;0.33;1.80;./images/the_glace_33cl.jpg
+B005;Monster;0.25;2.20;./images/monster.jpg
