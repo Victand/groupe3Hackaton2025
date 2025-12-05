@@ -85,10 +85,7 @@ if True:
     create_developpeur_from_csv(inv_dev, pd.read_csv("./dossiercsv/developpeur.csv", sep=";"))
     create_ticket_from_csv(inv_ticket, pd.read_csv("./dossiercsv/ticket.csv", sep=";"))
 
-    panier = Panier_fenetre(500, 50, 250, 500)
-    panier.ajouter_produit(inv_boisson.liste[0])
-    produits_fenetre = Inventaire_Produits(panier)
-
+    
     # Vérifier le contenu des inventaires
     print("=== Contenu Inventaire Boissons ===")
     for p in inv_boisson.liste:
