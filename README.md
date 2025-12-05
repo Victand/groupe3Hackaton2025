@@ -1,4 +1,4 @@
-# 💻 Hackathon Survival Guide (Pygame Edition)
+# 💻 Hackathon Survival Guide
 
 ## 🌟 Description du Projet
 
