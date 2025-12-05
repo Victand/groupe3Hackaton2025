@@ -5,6 +5,18 @@ import sys
 import os
 from random import randint
 
+import subprocess
+import os
+
+
+def ouvrir_map() : 
+    # Chemin du fichier Python à exécuter
+    fichier_a_executer = "map_finale.py"
+
+    # Ouvrir un nouveau terminal et exécuter le fichier Python
+    subprocess.Popen(f'start cmd /k "python {os.path.abspath(fichier_a_executer)}"', shell=True)
+
+
 
 
 
@@ -36,7 +48,7 @@ import classes_frontend
 from classes_frontend import *
 import boutique
 from boutique import *
-from Map import *
+from map_finale import *
 
 
 # --- Defnition des actions des boutons ---
@@ -60,7 +72,6 @@ screen = pygame.display.set_mode(TAILLE_ECRAN)
 pygame.display.set_caption("Fenêtres avec texte et boutons")
 
 panier = Panier_fenetre(750, 0, 250, 600)
-panier.ajouter_produit(inv_boisson.liste[0])
 produits_fenetre = Inventaire_Produits(panier)
 
 
@@ -76,7 +87,7 @@ fenetre_accueil.ajouter_texte("Vous avez accès à une boutique pour acheter vos
 fenetre_accueil.ajouter_texte(" vos prochains hackatons et les objets indispensables pour les gagner.", 60, 375, couleur=(0, 0, 150), taille=25)
 
 Bouton(fenetre_accueil, 300, 100, 200, 50, (100, 255, 100), ("Boutique",30), action=ouvrir_boutique)
-Bouton(fenetre_accueil, 30, 100, 200, 50, (255, 255, 100),("Map",30) , action = ouvrir_carte)
+Bouton(fenetre_accueil, 30, 100, 200, 50, (255, 255, 100),("Map",30) , action = ouvrir_map)
 Bouton(fenetre_accueil, 300, 520, 200, 50, (255, 100, 100),("Quitter",30) , action=lambda: sys.exit())
 Bouton(fenetre_accueil, 0, 0, 200, 50, (100,255,100), ("Ouvrir Popup",30), action=creer_popup, args = (popups,))
 
