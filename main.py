@@ -7,7 +7,36 @@ from random import randint
 
 import subprocess
 import os
+import time 
+import threading
+import random
 
+
+
+avertissements = [
+    "Attention aux ours !", "Grand froid", "Vent violent", "Pluie torrentielle", 
+    "Neige abondante", "Orages fréquents", "Canicule", "Brouillard dense",
+    "Chaleur extrême", "Tempête de sable", "Risque d’inondation", "Gel soudain",
+    "Avalanche possible", "Grêle importante", "Tornade locale", "Cyclone en approche",
+    "Forte humidité", "Chute de branches", "Foudre fréquente", "Risque de glissade"
+]
+
+def gestion_de_meteo_hackathon():
+    while True:
+        # Générer un chiffre aléatoire entre 0 et 31
+        temperature = random.randint(0, 31)
+        
+        # Choisir un avertissement aléatoire
+        avertissement = random.choice(avertissements)
+        
+        # Afficher la météo et l’avertissement
+        print(f"[MÉTÉO] Il fait {temperature}°C - {avertissement}")
+        
+        time.sleep(30)  # attendre 30 secondes avant la prochaine météo
+
+# Créer un thread pour la météo
+meteo_thread = threading.Thread(target=gestion_de_meteo_hackathon, daemon=True)
+meteo_thread.start()
 
 def ouvrir_map() : 
     # Chemin du fichier Python à exécuter
