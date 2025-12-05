@@ -2,9 +2,6 @@ from classes_frontend import *
 from abc import ABC, abstractmethod
 import csv
 
-
-
-
 # ============================
 #       CLASSES PRODUITS
 # ============================
@@ -191,7 +188,7 @@ class Inventaire_Produits(Inventaire) :
         self.panier = panier
 
     def ajouter_produit(self, produit):
-        self.liste.append(Produit_Fenetre(produit, 50 + len(self.liste) * 200  , 200, 100, 150, (220,220,220), self.panier))
+        self.liste.append(Produit_Fenetre(produit, 0,0,0,0, (220,220,220), self.panier))
 
     def delete_produit(self, id_produit):
         for p in self.liste:
@@ -204,14 +201,13 @@ class Inventaire_Produits(Inventaire) :
         if self.current_liste != inventaire or force: 
             self.current_liste = inventaire
             self.liste = []
-            x, y = 0,0
+            x, y = 50,100
             for p in inventaire.liste : 
-                self.liste.append(Produit_Fenetre(p,x ,y , 100, 150, (220,220,220), self.panier))
-                x += 200
+                self.liste.append(Produit_Fenetre(p,x ,y ,150 , 225, (220,220,220), self.panier))
+                x += 160
                 if x > 600 : 
-                    x = 0
-                    y+=300
-            print("liste importe")
+                    x = 50
+                    y+=260
 
     def trier_par_nom_spe(self):
         """
