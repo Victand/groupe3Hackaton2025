@@ -79,7 +79,7 @@ class Bouton:
         if abs_x <= souris_pos[0] <= abs_x + self.largeur and abs_y <= souris_pos[1] <= abs_y + self.hauteur:
             if self.action:
                 self.action(*self.args, **self.kwargs)
-            print("click")
+            
             return True
             
         return False
@@ -182,11 +182,12 @@ class ProduitPanier(Fenetre):
 
 
 class Panier_fenetre(Fenetre):
-    def __init__(self, x, y, largeur, hauteur, couleur=(200,200,200)):
+    def __init__(self, x, y, largeur, hauteur, couleur=(200,200,200), user  = 0):
         super().__init__(x, y, largeur, hauteur, couleur)
         self.produits = []   # Liste des ProduitPanier
         self.total = 0
-        Bouton(self,  largeur - 60, 10, 55,40, (255,100,100),("Payer",30), self.payer)
+        self.user  = user
+        Bouton(self,  largeur - 60, 10, 55,40, (255,100,100),("Payer",30), self.payer, args = (self.user,))
 
     def ajouter_produit(self, produit):
         """
@@ -244,9 +245,15 @@ class Panier_fenetre(Fenetre):
             font.render(f"Total : {format(self.total, '.2f')} €", True, (0,0,0)),
             (self.x + 20, self.y +20 )
         )
-    def payer(self) : 
-        self.produits = []
-        self.total = 0
+    def payer(self, user) : 
+        if user.monnaie > self.total : 
+            user.monnaie -= self.total
+            self.produits = []
+            self.total = 0
+            
+        else : 
+            print("pas assez d'argent")
+        print(user.monnaie)
 
     
 
