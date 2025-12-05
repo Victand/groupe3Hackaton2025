@@ -1,7 +1,7 @@
 id;nom;prix;niveau;image_path
-D001;Alice Dupont;450.00;Junior;images/dev_alice.png
-D002;Bruno Martin;650.00;Intermédiaire;images/dev_bruno.png
-D003;Chloé Bernard;850.00;Senior;images/dev_chloe.png
-D004;David Lefèvre;1000.00;Expert;images/dev_david.png
-D005;Emma Moreau;550.00;Intermédiaire;images/dev_emma.png
+D001;Alice Dupont;450.00;Junior;images/dev_2.jpg
+D002;Bruno Martin;650.00;Intermédiaire;images/dev_3.jpg
+D003;Chloé Bernard;850.00;Senior;images/dev_4.jpg
+D004;David Lefèvre;1000.00;Expert;images/dev_1.jpg
+D005;Emma Moreau;550.00;Intermédiaire;images/emma.jpeg
 
