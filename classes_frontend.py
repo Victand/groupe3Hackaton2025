@@ -155,7 +155,12 @@ class ProduitPanier(Fenetre):
         #self.ajouter_texte(self.nom, 10, 10, couleur=(0,0,0), taille=25)
         self.ajouter_texte(f"Prix : {format(self.prix, '.2f')} €", 10, hauteur-70,couleur=(0,0,0), taille=22)
         self.ajouter_texte(self.nom, 10, 10, couleur=(0,0,0), taille=25)
-        self.image = pygame.image.load(parent.image_path)
+
+        if os.path.exists(parent.image_path):
+            self.image = pygame.image.load(parent.image_path)
+        else : 
+            self.image = pygame.image.load('./images/flappy_bird.png')
+       
         self.image = pygame.transform.scale(self.image,
                                             (largeur - 20, hauteur - 120))
 
@@ -181,7 +186,7 @@ class Panier_fenetre(Fenetre):
         super().__init__(x, y, largeur, hauteur, couleur)
         self.produits = []   # Liste des ProduitPanier
         self.total = 0
-        Bouton(self,  largeur - 60, 10, 55,40, (255,100,100),("Payer",30))
+        Bouton(self,  largeur - 60, 10, 55,40, (255,100,100),("Payer",30), self.payer)
 
     def ajouter_produit(self, produit):
         """
@@ -239,6 +244,9 @@ class Panier_fenetre(Fenetre):
             font.render(f"Total : {format(self.total, '.2f')} €", True, (0,0,0)),
             (self.x + 20, self.y +20 )
         )
+    def payer(self) : 
+        self.produits = []
+        self.total = 0
 
     
 
