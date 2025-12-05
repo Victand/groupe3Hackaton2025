@@ -1,4 +1,4 @@
-# 💻 Hackathon Survival Guide
+# 💻 Hackifind
 
 ## 🌟 Description du Projet
 
