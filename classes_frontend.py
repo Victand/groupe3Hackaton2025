@@ -118,15 +118,15 @@ class Produit_Fenetre(Fenetre):
         self.ajouter_texte(self.nom, 10, 10, couleur=(0,0,0), taille=25)
         self.panier = panier
         # Charger l'image
-        print(parent.image_path)
+        
         if os.path.exists(parent.image_path):
             self.image = pygame.image.load(parent.image_path)
         else : 
             self.image = pygame.image.load('./images/flappy_bird.png')
 
-        self.image = pygame.transform.scale(self.image, (largeur-40, hauteur-120))  # redimensionner pour s'adapter
+        self.image = pygame.transform.scale(self.image, (largeur-40, hauteur-140))  # redimensionner pour s'adapter
         # Ajouter le prix
-        self.ajouter_texte(f"Prix : {self.prix} €", 20, hauteur-80, couleur=(0,0,0), taille=25)
+        self.ajouter_texte(f"Prix : {format(self.prix, '.2f')} €", 20, hauteur-80, couleur=(0,0,0), taille=25)
         # Bouton acheter
         bouton_acheter = Bouton(self, largeur//2 - 50, hauteur-50, 100, 40, (100,255,100), ("Acheter",30), action=self.acheter_produit, args= (panier,))
         
@@ -134,15 +134,11 @@ class Produit_Fenetre(Fenetre):
     def afficher(self, surface):
         super().afficher(surface)
         # Afficher l'image
-        surface.blit(self.image, (self.x + 20, self.y + 20))
+        surface.blit(self.image, (self.x + 20, self.y + 30))
     
     def acheter_produit(self, panier):
+        self.panier.ajouter_produit(self.parent)
         
-        panier.ajouter_produit(self.parent)
-        print("vous avez achete " + str(self.parent.nom) )
-        
-        print("votre panier est a : " + str(panier.prix_tot))
-        print("Produit acheté !")
 
 
 
@@ -152,18 +148,18 @@ class ProduitPanier(Fenetre):
                  supprimer_action=None, panier =0):
         
         super().__init__(x, y, largeur, hauteur, couleur)
-        print(parent)
+        
         self.nom = parent.nom
         self.prix = parent.prix
 
         #self.ajouter_texte(self.nom, 10, 10, couleur=(0,0,0), taille=25)
-        #self.ajouter_texte(f"Prix : {self.prix} €", 10, hauteur-70,couleur=(0,0,0), taille=22)
-
+        self.ajouter_texte(f"Prix : {format(self.prix, '.2f')} €", 10, hauteur-70,couleur=(0,0,0), taille=22)
+        self.ajouter_texte(self.nom, 10, 10, couleur=(0,0,0), taille=25)
         self.image = pygame.image.load(parent.image_path)
         self.image = pygame.transform.scale(self.image,
                                             (largeur - 20, hauteur - 120))
 
-        '''bouton_supprimer = Bouton(
+        bouton_supprimer = Bouton(
             self,
             largeur//2 - 50,
             hauteur - 45,
@@ -172,7 +168,7 @@ class ProduitPanier(Fenetre):
             (255,100,100),
             ("Supprimer",30),
             action=supprimer_action
-        )'''
+        )
 
 
     def afficher(self, surface):
@@ -185,6 +181,7 @@ class Panier_fenetre(Fenetre):
         super().__init__(x, y, largeur, hauteur, couleur)
         self.produits = []   # Liste des ProduitPanier
         self.total = 0
+        Bouton(self,  largeur - 60, 10, 55,40, (255,100,100),("Payer",30))
 
     def ajouter_produit(self, produit):
         """
@@ -194,14 +191,13 @@ class Panier_fenetre(Fenetre):
         # Position verticale en fonction du nombre d'éléments
         index = len(self.produits)
         px = self.x + 10
-        py = self.y + 10 + index * 260   # espacement entre produits
+        py = self.y + 50 + index * 260   # espacement entre produits
 
         # Action de suppression
         def supprimer_action(p=produit.nom):
             self.supprimer_produit(p)
 
         # Créer le produit à afficher dans le panier
-        print(produit.nom)
         self.produits.append(ProduitPanier(produit, px, py,supprimer_action=lambda: self.supprimer_produit(produit.nom)))
         self.mettre_a_jour_total()
 
@@ -240,6 +236,13 @@ class Panier_fenetre(Fenetre):
         # Afficher le total du panier
         font = pygame.font.SysFont(None, 30)
         surface.blit(
-            font.render(f"Total : {self.total} €", True, (0,0,0)),
-            (self.x + 20, self.y + self.hauteur - 40)
+            font.render(f"Total : {format(self.total, '.2f')} €", True, (0,0,0)),
+            (self.x + 20, self.y +20 )
         )
+
+    
+
+
+def get_path (name) : 
+    return os.path.join(os.path.dirname(__file__), name)
+
