@@ -100,7 +100,7 @@ pygame.init()
 screen = pygame.display.set_mode(TAILLE_ECRAN)
 pygame.display.set_caption("Fenêtres avec texte et boutons")
 
-panier = Panier_fenetre(750, 0, 250, 600)
+panier = Panier_fenetre(750, 0, 250, 600, user = client)
 produits_fenetre = Inventaire_Produits(panier)
 
 
